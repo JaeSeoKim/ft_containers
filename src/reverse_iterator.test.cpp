@@ -34,6 +34,31 @@ void test_reverse_iterator(void) {
   std::reverse_iterator< iter_type > std_rev_from(until);
   std::reverse_iterator< iter_type > std_rev_until(from);
 
+  int arr[] = {1, 2, 3, 4};
+  ft::reverse_iterator< int* > it_arr(arr + 4);
+  ft::reverse_iterator< int* > it_copy(it_arr);
+  (void)it_copy;
+
+  assert((ft_rev_from < ft_rev_until) == (std_rev_from < std_rev_until));
+  std::cout
+      << "\t (ft_rev_from < ft_rev_until) == (std_rev_from < std_rev_until)"
+      << std::endl;
+
+  assert((ft_rev_from <= ft_rev_until) == (std_rev_from <= std_rev_until));
+  std::cout
+      << "\t (ft_rev_from <= ft_rev_until) == (std_rev_from <= std_rev_until)"
+      << std::endl;
+
+  assert((ft_rev_from > ft_rev_until) == (std_rev_from > std_rev_until));
+  std::cout
+      << "\t (ft_rev_from > ft_rev_until) == (std_rev_from > std_rev_until)"
+      << std::endl;
+
+  assert((ft_rev_from >= ft_rev_until) == (std_rev_from >= std_rev_until));
+  std::cout
+      << "\t (ft_rev_from >= ft_rev_until) == (std_rev_from >= std_rev_until)"
+      << std::endl;
+
   assert(*ft_rev_from == *std_rev_from);
   std::cout << "\t *ft_rev_from == *std_rev_from" << std::endl;
   assert(*ft_rev_until == *std_rev_until);
@@ -75,8 +100,7 @@ void test_reverse_iterator(void) {
     ++ft_rev_iterator;
     ++std_rev_iterator;
   }
-  std::cout << "\t ft_rev_iterator->* == std_rev_iterator->*"
-            << std::endl;
+  std::cout << "\t ft_rev_iterator->* == std_rev_iterator->*" << std::endl;
 
   while (ft_rev_from != ft_rev_until && std_rev_from != std_rev_until) {
     assert(std_rev_from.base() == ft_rev_from.base());

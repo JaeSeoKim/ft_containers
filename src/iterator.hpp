@@ -262,7 +262,7 @@ class reverse_iterator {
    */
   reverse_iterator operator+(difference_type n) const {
     return reverse_iterator(current - n);
-  }
+  };
   /**
    * @brief Advances the reverse_iterator by one position.
    * @example ++ri;
@@ -324,7 +324,7 @@ class reverse_iterator {
    * @brief Returns a pointer to the element pointed to by the iterator (in
    * order to access one of its members).
    */
-  pointer operator->() const { return &(operator*()); }
+  pointer operator->() const { return &(operator*()); };
 
   /**
    * @brief Accesses the element located n positions away from the element
@@ -357,7 +357,7 @@ bool operator!=(const reverse_iterator< Iterator >& lhs,
 template < class Iterator >
 bool operator<(const reverse_iterator< Iterator >& lhs,
                const reverse_iterator< Iterator >& rhs) {
-  return (lhs.base() < rhs.base());
+  return (lhs.base() > rhs.base());
 };
 
 /**
@@ -366,7 +366,7 @@ bool operator<(const reverse_iterator< Iterator >& lhs,
 template < class Iterator >
 bool operator<=(const reverse_iterator< Iterator >& lhs,
                 const reverse_iterator< Iterator >& rhs) {
-  return (lhs.base() <= rhs.base());
+  return (lhs.base() >= rhs.base());
 };
 
 /**
@@ -375,7 +375,7 @@ bool operator<=(const reverse_iterator< Iterator >& lhs,
 template < class Iterator >
 bool operator>(const reverse_iterator< Iterator >& lhs,
                const reverse_iterator< Iterator >& rhs) {
-  return (lhs.base() > rhs.base());
+  return (lhs.base() < rhs.base());
 };
 
 /**
@@ -384,7 +384,7 @@ bool operator>(const reverse_iterator< Iterator >& lhs,
 template < class Iterator >
 bool operator>=(const reverse_iterator< Iterator >& lhs,
                 const reverse_iterator< Iterator >& rhs) {
-  return (lhs.base() >= rhs.base());
+  return (lhs.base() <= rhs.base());
 };
 
 /**
