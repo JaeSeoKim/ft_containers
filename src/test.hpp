@@ -16,7 +16,9 @@
 
 void test_iterator_traits(void);
 void test_reverse_iterator(void);
+void test_algorithm(void);
 
 void test_vector(void);
+void test_utility(void);
 
 #endif  // TEST_HPP

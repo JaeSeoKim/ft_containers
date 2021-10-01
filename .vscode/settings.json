@@ -74,6 +74,10 @@
     "*.tcc": "cpp",
     "memory_resource": "cpp",
     "stop_token": "cpp",
-    "cassert": "cpp"
+    "cassert": "cpp",
+    "__bits": "cpp",
+    "map": "cpp",
+    "__tree": "cpp",
+    "__memory": "cpp"
   }
 }

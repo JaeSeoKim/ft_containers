@@ -13,18 +13,19 @@
 
 #include <iostream>
 #include <iterator>
+#include <type_traits>
 #include <vector>
 
 #include "iterator.hpp"
 #include "test.hpp"
-
-// void test_vector(void);
 
 int main(void) {
   std::cout << "Test: ft_containers" << std::endl;
 
   test_iterator_traits();
   test_reverse_iterator();
+  test_algorithm();
+  test_utility();
 
   return 0;
 }
