@@ -17,15 +17,21 @@
 #include <vector>
 
 #include "iterator.hpp"
+#include "random_access_iterator.hpp"
 #include "test.hpp"
+#include "vector.hpp"
 
 int main(void) {
   std::cout << "Test: ft_containers" << std::endl;
 
-  test_iterator_traits();
+  // test_iterator_traits();
   test_reverse_iterator();
-  test_algorithm();
-  test_utility();
+  // test_algorithm();
+  // test_utility();
+  // test_random_access_iterator();
+
+  // test_vector();
+
 
   return 0;
 }

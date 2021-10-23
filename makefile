@@ -47,6 +47,7 @@ SRCS = $(addprefix $(SRC_DIR)/, \
 	reverse_iterator.test.cpp \
 	algorithm.test.cpp	\
 	utility.test.cpp \
+	random_access_iterator.test.cpp \
 )
 
 # Vitual Path List

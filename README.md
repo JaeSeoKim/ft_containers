@@ -38,4 +38,4 @@ You are allowed to use the STD library.
 If you finished the mandatory part, you can try and turn in the bonuses.
 
 As a bonus one last container:
- -  Set - But this time a Black - Red tree is mandatory.
+ - Set - But this time a Black - Red tree is mandatory.

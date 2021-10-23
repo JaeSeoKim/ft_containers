@@ -83,11 +83,6 @@ struct is_integral< unsigned long int > : public true_type {};
 template <>
 struct is_integral< unsigned long long int > : public true_type {};
 
-template < class T >
-void test() {
-  typedef typename ft::enable_if< ft::is_integral< T >::value >::type type;
-  std::cout << typeid(type).name();
-}
 }  // namespace ft
 
 #endif  // FT__TYPE_TRAITS_HPP

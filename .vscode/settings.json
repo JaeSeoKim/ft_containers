@@ -78,6 +78,11 @@
     "__bits": "cpp",
     "map": "cpp",
     "__tree": "cpp",
-    "__memory": "cpp"
+    "__memory": "cpp",
+    "version": "cpp",
+    "__functional_03": "cpp",
+    "list": "cpp",
+    "set": "cpp",
+    "stack": "cpp"
   }
 }

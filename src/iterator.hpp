@@ -15,6 +15,7 @@
 #define FT__ITERATOR_HPP
 
 #include <cstddef>
+#include <iostream>
 namespace ft {
 
 /**
@@ -161,7 +162,7 @@ struct iterator_traits< T* > {
  * @tparam T ft:iterator
  */
 template < class T >
-struct iterator_traits< const T* > {
+struct iterator_traits< T* const > {
   /**
    * the category of the iterator
    */
@@ -244,9 +245,21 @@ class reverse_iterator {
       : current(rev_it.base()){};
 
   /**
+   * @brief destructor
+   */
+  virtual ~reverse_iterator(){};
+
+  /**
    * @brief Returns a copy of the base iterator.
    */
   iterator_type base() const { return current; };
+
+  /**
+   * @brief reverse_iterator< const Iterator > casting operator
+   *
+   * @return reverse_iterator< const Iterator >
+   */
+  operator reverse_iterator< const Iterator >() const { return this->current; }
 
   /**
    * @brief Returns a reference to the element pointed to by the iterator.
@@ -277,7 +290,7 @@ class reverse_iterator {
    */
   reverse_iterator operator++(int) {
     reverse_iterator tmp = *this;
-    --(*this);
+    --current;
     return tmp;
   };
   /**
@@ -295,6 +308,7 @@ class reverse_iterator {
   reverse_iterator operator-(difference_type n) const {
     return reverse_iterator(current + n);
   }
+
   /**
    * @brief Decreases the reverse_iterator by one position.
    * @example --ri;
@@ -309,7 +323,7 @@ class reverse_iterator {
    */
   reverse_iterator operator--(int) {
     reverse_iterator tmp = *this;
-    ++(*this);
+    ++current;
     return tmp;
   };
   /**
@@ -336,54 +350,54 @@ class reverse_iterator {
 /**
  * @brief Relational operators== for reverse_iterator
  */
-template < class Iterator >
-bool operator==(const reverse_iterator< Iterator >& lhs,
-                const reverse_iterator< Iterator >& rhs) {
+template < class Iterator1, class Iterator2 >
+bool operator==(const reverse_iterator< Iterator1 >& lhs,
+                const reverse_iterator< Iterator2 >& rhs) {
   return (lhs.base() == rhs.base());
 };
 
 /**
  * @brief Relational operators!= for reverse_iterator
  */
-template < class Iterator >
-bool operator!=(const reverse_iterator< Iterator >& lhs,
-                const reverse_iterator< Iterator >& rhs) {
+template < class Iterator1, class Iterator2 >
+bool operator!=(const reverse_iterator< Iterator1 >& lhs,
+                const reverse_iterator< Iterator2 >& rhs) {
   return (lhs.base() != rhs.base());
 };
 
 /**
  * @brief Relational operators< for reverse_iterator
  */
-template < class Iterator >
-bool operator<(const reverse_iterator< Iterator >& lhs,
-               const reverse_iterator< Iterator >& rhs) {
+template < class Iterator1, class Iterator2 >
+bool operator<(const reverse_iterator< Iterator1 >& lhs,
+               const reverse_iterator< Iterator2 >& rhs) {
   return (lhs.base() > rhs.base());
 };
 
 /**
  * @brief Relational operators<= for reverse_iterator
  */
-template < class Iterator >
-bool operator<=(const reverse_iterator< Iterator >& lhs,
-                const reverse_iterator< Iterator >& rhs) {
+template < class Iterator1, class Iterator2 >
+bool operator<=(const reverse_iterator< Iterator1 >& lhs,
+                const reverse_iterator< Iterator2 >& rhs) {
   return (lhs.base() >= rhs.base());
 };
 
 /**
  * @brief Relational operators> for reverse_iterator
  */
-template < class Iterator >
-bool operator>(const reverse_iterator< Iterator >& lhs,
-               const reverse_iterator< Iterator >& rhs) {
+template < class Iterator1, class Iterator2 >
+bool operator>(const reverse_iterator< Iterator1 >& lhs,
+               const reverse_iterator< Iterator2 >& rhs) {
   return (lhs.base() < rhs.base());
 };
 
 /**
  * @brief Relational operators>= for reverse_iterator
  */
-template < class Iterator >
-bool operator>=(const reverse_iterator< Iterator >& lhs,
-                const reverse_iterator< Iterator >& rhs) {
+template < class Iterator1, class Iterator2 >
+bool operator>=(const reverse_iterator< Iterator1 >& lhs,
+                const reverse_iterator< Iterator2 >& rhs) {
   return (lhs.base() <= rhs.base());
 };
 
@@ -405,10 +419,10 @@ reverse_iterator< Iterator > operator+(
 /**
  * @brief Returns the distance between lhs and rhs.
  */
-template < class Iterator >
-typename reverse_iterator< Iterator >::difference_type operator-(
-    const reverse_iterator< Iterator >& lhs,
-    const reverse_iterator< Iterator >& rhs) {
+template < class Iterator1, class Iterator2 >
+typename reverse_iterator< Iterator1 >::difference_type operator-(
+    const reverse_iterator< Iterator1 >& lhs,
+    const reverse_iterator< Iterator2 >& rhs) {
   return rhs.base() - lhs.base();
 };
 

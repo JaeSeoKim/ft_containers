@@ -21,4 +21,6 @@ void test_algorithm(void);
 void test_vector(void);
 void test_utility(void);
 
+void test_random_access_iterator(void);
+
 #endif  // TEST_HPP
